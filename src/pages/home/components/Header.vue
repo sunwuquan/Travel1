@@ -6,8 +6,10 @@
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
       输入城市经典有游玩主题</div>
-    <div class="header-right">{{city}}<span class="iconfont arrow-icon">&#xe64a;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">{{city}}<span class="iconfont arrow-icon">&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 <script>
@@ -21,7 +23,7 @@ export default {
 <style lang="stylus" scoped>
   @import "~styles/varibles.styl"
   .header {
-    line-height: .86rem;
+    line-height: $headerHeight
     background $bgColor;
     color :#fff;
   display :flex;
@@ -51,6 +53,7 @@ export default {
     width: 1.24rem;
     float: right;
     text-align center;
+    color #fff
   }
   .arrow-icon{
     display inline-block
