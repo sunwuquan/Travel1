@@ -1,19 +1,24 @@
 <template>
   <div>
     <div class="banner" @click="handleShowBanner">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1709/bf/bfe91441ab865b2ea3.img.jpg_600x330_18c9bfb7.jpg" alt="">
+      <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">远去的恐龙</div>
-        <div class="number"><span class="iconfont banner-icon">&#xe67b;</span>34</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="number"><span class="iconfont banner-icon">&#xe67b;</span>{{this.gallaryImgs.length}}</div>
       </div>
     </div>
-    <comm-gallary v-show="show" :imgs="imgs" @close="handleClose"></comm-gallary>
+    <comm-gallary v-show="show" :imgs="gallaryImgs" @close="handleClose"></comm-gallary>
   </div>
 </template>
 <script>
 import CommGallary from 'comm/gallary/Gallary'
 export default {
   name: 'Banner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
       show: false,
